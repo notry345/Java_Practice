@@ -1,4 +1,4 @@
-package week02;
+
 public class Hello {
 	public static int sum(int n, int m) {
 		return n+m;
@@ -26,8 +26,6 @@ public class Hello2 {
 	}
 }
 //Hello2
-
-package week02;
 public class Hello2030 {
 	public static void main(String[] args) {
 		int n = 2030;
@@ -36,7 +34,6 @@ public class Hello2030 {
 }
 //Hello2030
 
-package week02;
 import java.util.Scanner;
 public class Mini_Project {
 	public static void arithmetic() {
