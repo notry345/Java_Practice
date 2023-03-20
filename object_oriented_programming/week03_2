@@ -14,5 +14,54 @@ public class WhileSample {
 		System.out.println("평균은 "+sum/count+"입니다.");
 		scanner.close();
 	}
-
+}
+public class DoWhileSample {
+	public static void main(String[] args) {
+		char a = 'a';
+		do {
+			System.out.print(a);
+			a = (char)(a+1);
+		}while(a <= 'z');
+	}
+}
+public class NestedLoop {
+	public static void main(String[] args) {
+		for(int i=1;i<10;i++) {
+			for(int j=1;j<10;j++) {
+				System.out.print(i+'*'+j+'='+i*j);
+				System.out.print('\t');
+			}
+			System.out.println();
+		}
+	}
+}
+import java.util.Scanner;
+public class ContinueExample {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("정수를 5개 입력하세요.");
+	int sum=0;
+	for(int i=0;i<5;i++) {
+		int n = scanner.nextInt();
+		if(n<=0) continue;
+		else sum +=n;
+	}
+	System.out.println("양수의 합은 "+sum);
+	scanner.close();
+	}
+}
+import java.util.Scanner;
+public class BreakSample {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("exit을 입력하면 종료합니다.");
+		while(true) {
+			System.out.print(">>");
+			String text = scanner.nextLine();
+			if(text.equals("exit"))
+				break;
+		}
+		System.out.println("종료합니다...");
+		scanner.close();
+	}
 }
