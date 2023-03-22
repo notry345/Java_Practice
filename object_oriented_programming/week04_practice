@@ -1,0 +1,62 @@
+import java.util.Scanner;
+public class Practice01 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("화씨 온도를 입력하세요: ");
+		int F = scanner.nextInt();
+		float C = (5/9)*(F-32);
+		System.out.println(F);
+		System.out.println(C);
+		System.out.println("해당하는 섭씨 온도는 "+C+"입니다.");
+        scanner.close();
+	}
+}
+
+import java.util.Scanner;
+public class Practice02 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("인치 값을 입력하세요: ");
+		float inch = scanner.nextFloat();
+		int centimeter = (int)(2.54*inch);
+		System.out.println("해당하는 센티미터 값은 "+centimeter+"입니다.");
+        scanner.close();
+	}
+}
+
+import java.util.Scanner;
+public class Practice03 {
+	public static void main(String[] args) {
+		String type;
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("정수를 입력하세요: ");
+		int num = scanner.nextInt();
+		if(num<0) {
+			type = "음수";
+		}
+		else if(num%2==0){
+			type = "짝수";
+		}
+		else{
+			type = "홀수";
+		}
+		System.out.println("입력한 정수 "+num+"은 "+type+"입니다.");
+	}
+}
+
+import java.util.Scanner;
+public class Practice04 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수를 입력하세요: ");
+		int num = sc.nextInt();
+		int value;
+		if(num<0) {
+			value = -num;
+		}
+		else {value = num;}
+		System.out.println("입력한 정수 "+num+"의 절댓값은 "+value+"입니다.");
+		sc.close();
+	}
+}
+
