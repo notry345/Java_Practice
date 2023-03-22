@@ -60,3 +60,36 @@ public class Practice04 {
 	}
 }
 
+public class Practice05 {
+	public static void main(String[] args) {
+		int j2=2;
+		for(int a=0;a<2;a++) {
+			for(int i=1;i<6;i++) {
+				for(int j=j2;j<j2+4;j++) {
+					System.out.print(j+"*"+i+"="+i*j);
+					System.out.print("\t");
+				}
+				System.out.println();
+			}
+			j2 = j2+4;
+			System.out.println();
+		}
+	}
+}
+
+public class Practice06 {
+	public static void main(String[] args) {
+		int i=0;
+		int j=1;
+		while(j<=10) {
+			while(i<j) {
+				System.out.print(i);
+				i=i+1;
+			}
+			System.out.println();
+			j=j+1;
+			i=0;
+		}
+	}
+}
+
