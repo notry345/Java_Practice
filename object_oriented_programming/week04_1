@@ -29,3 +29,82 @@ public class ArrayLength {
 		scanner.close();
 	}
 }
+public class foreachEx {
+	enum Week {월,화,수,목,금,토,일}
+	public static void main(String[] args) {
+		int n[] = {1,2,3,4,5};
+		String names[] = {"사과","배","바나나","체리","딸기","포도"};
+		int sum = 0;
+		for(int k:n) {
+			System.out.print(k+" ");
+			sum +=k;
+		}
+		System.out.println("합은 "+sum);
+		for(String s:names)
+			System.out.print(s+" ");
+		System.out.println();
+		for(Week day:Week.values())
+			System.out.print(day+"요일 ");
+		System.out.println();
+	}
+
+}
+public class ScoreAverage {
+	public static void main(String[] args) {
+		double score[][] = {{3.3,3.4},{3.5,3.6},{3.7,4.0},{4.1,4.2}};
+		double sum = 0;
+		for(int year=0;year<score.length;year++)
+			for(int term=0;term<score[year].length;term++)
+				sum += score[year][term];
+		int n=score.length;
+		int m=score[0].length;
+		System.out.println("4년 전체 평점 평균은 "+sum/(n*m));
+	}
+}
+public class IrregularArray {
+	public static void main(String[] args) {
+		int i[][] = new int[4][];
+		i[0] = new int[3];
+		i[1] = new int[2];
+		i[2] = new int[3];
+		i[3] = new int[2];
+		for(int a=0;a<i.length;a++)
+			for(int b=0;b<i[a].length;b++)
+				i[a][b] = (a+1)*10+b;
+		for(int a=0;a<i.length;a++) {
+			for(int b=0;b<i[a].length;b++)
+				System.out.print(i[a][b]+" ");
+		    System.out.println();
+		}
+	}
+}
+import java.util.random;
+import java.util.Scanner;
+public class ArrayPractice {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n;
+		int m;
+		System.out.print("행 크기: ");
+		n = sc.nextInt();
+		System.out.print("열 크기: ");
+		m = sc.nextInt();
+		while(n<1||n>10||m<1||m>10) {
+			System.out.println("반드시 1~10 사이의 정수를 입력해야 합니다.");
+			System.out.print("행 크기: ");
+			n = sc.nextInt();
+			System.out.print("열 크기: ");
+			m = sc.nextInt();
+		}
+		char ch[][] = new char[n][m];
+		for(int i=0;i<n;i++)
+			for(int j=0;j<m;j++) {
+				ch[i][j] = (char)(Math.random()*26+65);
+			}
+		for(int i=0;i<n;i++)
+			for(int j=0;j<m;j++) {
+				System.out.print(ch);
+			}
+	}
+
+}
