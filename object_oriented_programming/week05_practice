@@ -77,7 +77,6 @@ public class Practice03 {
 	}
 }
 
-#수정 필요
 import java.util.Scanner;
 public class Practice04 {
 	public static void main(String arg[]) {
@@ -87,11 +86,23 @@ public class Practice04 {
 		do {
 			System.out.print("숫자를 입력하세요: ");
 			N = sc.nextInt();
+			done = true;
 			if(N<=0) {
 				System.out.println("잘못된 입력입니다. 다시 입력하세요.");
 				done = false;
 			}
-			else {done = true;}
 		}while(!done);
+		sc.close();
+		int count =0;
+		for(int i=1;i<=N;i++) {
+			if(i%5!=0) {
+				System.out.print(i+"  ");
+				count++;
+			}
+			if(i%(5*7)==0)
+				count++;
+			if(count%7==0)
+				System.out.println();
+		}
 	}
 }
