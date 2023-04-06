@@ -1,0 +1,63 @@
+#StaticMember
+import java.util.Scanner;
+class CurrencyConverter {
+	private static double rate;
+	public static double toDollar(double won) {
+		return won/rate;
+	}
+	public static double toKWR(double dollar) {
+		return dollar*rate;
+	}
+	public static void setRate(double r) {
+		rate = r;
+	}
+}
+public class StaticMember{
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("환율(1달러)>> ");
+		double rate = scanner.nextDouble();
+		CurrencyConverter.setRate(rate);
+		System.out.println("백만원은 $"+CurrencyConverter.toDollar(1000000)+"입니다.");
+		System.out.println("$100는"+CurrencyConverter.toKWR(100)+"원입니다.");
+		scanner.close();
+	}
+}
+
+#Point
+class Point {
+	private int x,y;
+	public void set(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	public void showPoint() {
+		System.out.println("("+x+","+y+")");
+	}
+}
+
+#ColorPoint
+class ColorPoint extends Point{
+	private String color;
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public void showColorPoint() {
+		System.out.print(color);
+		showPoint();
+	}
+}
+
+#ColorPointEx
+public class ColorPointEx {
+	public static void main(String[] args) {
+		Point p = new Point();
+		p.set(1, 2);
+		p.showPoint();
+		ColorPoint cp = new ColorPoint();
+		cp.set(3, 4);
+		cp.setColor("red");
+		cp.showColorPoint();
+	}
+}
+
