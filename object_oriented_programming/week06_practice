@@ -1,0 +1,49 @@
+#Practice13(unfinished)
+import java.util.Scanner;
+class Pick {
+	String pick;
+	public Pick(String p) {
+		pick = p;
+	}
+	public int digitzation(String pick) {
+		int digit;
+		if(pick == "가위"){
+			digit = 1;
+		}
+		else if(pick == "바위") {
+			digit = 2;
+		}
+		else if(pick == "보") {
+			digit = 3;
+		}
+		else{
+			digit = 0;
+		}
+		return digit;
+	}
+}
+public class Practice13 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int CSdigit;
+		int YHdigit;
+		do {
+			System.out.print("철수의 입력: ");
+			Pick CS = new Pick(scanner.next());
+			CSdigit = CS.digitzation(CS.pick);
+			System.out.println(CS.pick);
+			System.out.println(CSdigit);
+			if(CSdigit == 0) {
+				System.out.println("잘못된 입력입니다. 다시 입력하세요.");
+			}
+		}while(CSdigit == 0);
+		do {
+			System.out.print("영희의 입력: ");
+			Pick YH = new Pick(scanner.next());
+			YHdigit = YH.digitzation(YH.pick);
+			if(CSdigit == 0) {
+				System.out.println("잘못된 입력입니다. 다시 입력하세요.");
+			}
+		}while(CSdigit == 0);
+	}
+}
