@@ -39,7 +39,7 @@ public class MethodOverridingEx {
 	}
 }
 
-#implementing abstract class
+#implement abstract class example
 
 abstract class Calculator{
 	public abstract int add(int a, int b);
@@ -67,5 +67,40 @@ public class GoodCalc extends Calculator{
 		System.out.println(c.add(2,3));
 		System.out.println(c.subtract(2,3));
 		System.out.println(c.average(new int[] {2,3,4}));
+	}
+}
+
+#implement interface example
+
+interface PhoneInterface{ //인터페이스 구현
+	final int TIMEOUT = 10000; //상수 필드 선언
+	void sendCall(); //추상 메소드
+	void receiveCall(); //추상 메소드
+	default void printLogo() { //default 메소드
+		System.out.println("** PHONE **");
+	}
+}
+class SamsungPhone implements PhoneInterface{ //인터페이스 구현
+	//PhoneInterface의 모든 추상 메소드 구현해야함
+	@Override
+	public void sendCall() {
+		System.out.println("띠리리리링");
+	}
+	@Override
+	public void receiveCall() {
+		System.out.println("전화가 왔습니다.");
+	}
+	//메소드 추가 작성
+	public void flash() {
+		System.out.println("전화기에 불이 켜졌습니다.");
+	}
+}
+public class InterfaceEx {
+	public static void main(String[] args) {
+		SamsungPhone phone = new SamsungPhone();
+		phone.printLogo();
+		phone.sendCall();
+		phone.receiveCall();
+		phone.flash();
 	}
 }
