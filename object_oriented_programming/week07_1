@@ -1,0 +1,71 @@
+#method overriding example
+
+class Shape {
+	public Shape next;
+	public Shape() {next = null;}
+	
+	public void draw() {
+		System.out.println("Shape");
+	}
+}
+class Line extends Shape{
+	public void draw() { //method overriding
+		System.out.println("Line");
+	}
+}
+class Rect extends Shape{
+	public void draw() {
+		System.out.println("Rect");
+	}
+}
+class Circle extends Shape{
+	public void draw() {
+		System.out.println("Circle");
+	}
+}
+public class MethodOverridingEx {
+	static void paint(Shape p) {
+		p.draw(); 
+		//p가 가르키는 객체 내에 오버라이딩된 draw() 호출
+		//동적 바인딩
+	}
+	public static void main(String[] args) {
+		Line line = new Line();
+		paint(line);
+		paint(new Shape());
+		paint(new Line());
+		paint(new Rect());
+		paint(new Circle());
+	}
+}
+
+#implementing abstract class
+
+abstract class Calculator{
+	public abstract int add(int a, int b);
+	public abstract int subtract(int a, int b);
+	public abstract double average(int[] a);
+}
+public class GoodCalc extends Calculator{
+	@Override
+	public int add(int a, int b) { //추상 메소드 구현
+		return a+b;
+	}
+	@Override
+	public int subtract(int a, int b) { //추상 메소드 구현
+		return a-b;
+	}
+	@Override
+	public double average(int[] a) { //추상 메소드 구현
+		double sum = 0;
+		for(int i=0; i<a.length; i++)
+			sum += a[i];
+		return sum/a.length;
+	}
+	public static void main(String[] args) {
+		GoodCalc c = new GoodCalc();
+		System.out.println(c.add(2,3));
+		System.out.println(c.subtract(2,3));
+		System.out.println(c.average(new int[] {2,3,4}));
+	}
+}
