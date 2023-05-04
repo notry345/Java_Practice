@@ -1,3 +1,4 @@
+#Practice 6-7
 public class StringEx {
 	public static void main(String[] args) {
 		String a = new String(" C#");
@@ -17,5 +18,84 @@ public class StringEx {
 		System.out.println(a);
 		char c = a.charAt(2); //인덱스 2의 문자 리턴
 		System.out.println(c);
+	}
+}
+
+#Practice 6-8
+public class StringBufferEx {
+	public static void main(String[] args) {
+		StringBuffer sb = new StringBuffer("This");
+		sb.append(" is pencil"); 
+		//문자열 덧붙이기
+		System.out.println(sb);
+		sb.insert(7,  " my");
+		//문자열 삽입
+		System.out.println(sb);
+		sb.replace(8,  10, "your");
+		//문자열 변경
+		System.out.println(sb);
+		sb.delete(8,  13);
+		//문자열 삭제
+		System.out.println(sb);
+		sb.setLength(4);
+		//스트링 버퍼 내 문자열 길이 수정
+		System.out.println(sb);
+	}
+}
+
+#Practice 6-9
+import java.util.StringTokenizer;
+public class StringTokenizerEx {
+	public static void main(String[] args) {
+		StringTokenizer st = new StringTokenizer("홍길동/장화/홍련/콩쥐/팥쥐","/");
+		while(st.hasMoreTokens())
+			System.out.println(st.nextToken());
+	}
+}
+
+#Practice 6-10
+public class MathEx {
+	public static void main(String[] args) {
+		System.out.println(Math.PI);
+		double a = 3.141592;
+		System.out.println(Math.ceil(a));
+		System.out.println(Math.floor(a));
+		System.out.println(Math.sqrt(9));
+		System.out.println(Math.exp(2));
+		System.out.println(Math.round(3.14));
+		System.out.println("이번주 행운의 번호는 ");
+		for(int i=0; i<5; i++)
+			System.out.println((int)(Math.random()*45+1)+" ");
+	}
+}
+
+#StackTest.java
+import java.util.Stack;
+public class StackTest {
+	public static void main(String[] args) {
+		Stack<String> myStack = new Stack<String>();
+		System.out.println("myStack.empty()--> "+myStack.empty());
+		System.out.println();
+		myStack.push("1st");
+		System.out.println(myStack);
+		myStack.push("2nd");
+		System.out.println(myStack);
+		myStack.push("3rd");
+		System.out.println(myStack);
+		myStack.push("4th");
+		System.out.println(myStack);
+		System.out.println("myStack.peek()--> "+myStack.peek());
+		System.out.println();
+		String element;
+		System.out.println(myStack);
+		element = myStack.pop();
+		System.out.println("myStack.pop()--> "+element);
+		System.out.println();
+		System.out.println(myStack);
+		element = myStack.pop();
+		System.out.println("myStack.pop()--> "+element);
+		System.out.println();
+		myStack.push("5th");
+		System.out.println(myStack);
 	}
 }
