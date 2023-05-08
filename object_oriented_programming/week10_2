@@ -1,4 +1,4 @@
-#Practice 7_1
+#Practice 7-1
 import java.util.Vector;
 public class VectorEx {
 	public static void main(String[] args) {
