@@ -78,3 +78,28 @@ public class PointVectorEx {
 		//데이터는 갖지만 새로 생성 했으므로 서로 다른 객체임
 	}
 }
+
+#Practice 7-3
+import java.util.*;
+public class ArrayListEx {
+	public static void main(String[] args) {
+		ArrayList<String> a = new ArrayList<String>();
+		Scanner scanner = new Scanner(System.in);
+		for(int i=0; i<4; i++) {
+			System.out.print("Input name>>");
+			String s = scanner.next();
+			a.add(s);
+		}
+		for(int i=0; i<a.size(); i++) {
+			String name = a.get(i);
+			System.out.print(name+" ");
+		}
+		int longestIndex = 0;
+		for(int i=1; i<a.size(); i++) {
+			if(a.get(longestIndex).length()<a.get(i).length())
+				longestIndex = i;
+		}
+		System.out.println("\nThe longest name is : "+a.get(longestIndex));
+		scanner.close();
+	}
+}
