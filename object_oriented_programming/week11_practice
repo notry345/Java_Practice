@@ -1,1 +1,42 @@
-#Practice 48
+#Practice48
+interface Speakable{
+	void speak();
+}
+class Dog implements Speakable{
+	public void speak() {
+		System.out.println("멍멍");
+	}
+}
+class Person implements Speakable{
+	String name;
+	int age;
+	Person(String name, int age){
+		this.name = name;
+		this.age = age;
+	}
+	public void speak() {
+		if(this.age>=2)
+			System.out.println("안녕");
+		else
+			System.out.println("응애");
+	}
+}
+public class Practice48 {
+	private static void speak3Times(Dog d) {
+		for(int i=0; i<3; i++)
+			d.speak();
+	}
+	private static void speak3Times(Person p) {
+		for(int i=0; i<3; i++)
+			p.speak();
+	}
+	public static void main(String[] args) {
+		Dog myDog = new Dog();
+		Person p1 = new Person(" 김동덕",1);
+		Person p2 = new Person(" 홍길동",20);
+		speak3Times(myDog);
+		speak3Times(p1);
+		speak3Times(p2);
+	}
+}
+
