@@ -256,4 +256,117 @@ public class Practice50 {
 	}
 }
 
+#Practice51
+public class Practice51 {
+	public static void main(String[] args) {
+		Shape s = new Shape();
+		Rectangle r = new Rectangle();
+		Triangle t = new Triangle();
+		
+		System.out.println(s instanceof Shape);
+		System.out.println(s instanceof Rectangle);
+		System.out.println(s instanceof Triangle);
+		System.out.println(s instanceof Movable);
+		System.out.println(s instanceof Drawable);
+		
+		System.out.println(r instanceof Shape);
+		System.out.println(r instanceof Rectangle);
+		System.out.println(r instanceof Triangle); //compile error
+		//객체 r은 부모클래스 Shape를 상속받고, 인터페이스 Movable과 인터페이스 Drawable을 구현한
+		//자식클래스 Rectangle의 객체이다.
+		//객체 r과 Shape의 또다른 자식클래스인 Triangle가 상속관계가 없기 때문에 캐스팅이 불가능하므로
+		//컴파일 오류가 발생한다.
+		System.out.println(r instanceof Movable);
+		System.out.println(r instanceof Drawable);
+		
+		System.out.println(t instanceof Shape);
+		System.out.println(t instanceof Rectangle); //compile error
+		//객체 t은 부모클래스 Shape를 상속받고, 인터페이스 Movable과 인터페이스 Drawable을 구현한
+		//자식클래스 Triangle의 객체이다.
+	    //객체 t과 Shape의 또다른 자식클래스인 Rectangle가 상속관계가 없기 때문에 캐스팅이 불가능하므로
+		//컴파일 오류가 발생한다.
+		System.out.println(t instanceof Triangle);
+		System.out.println(t instanceof Movable);
+		System.out.println(t instanceof Drawable);
+	}
+}
 
+#Practice52
+public class Practice52 {
+	public static void main(String[] args) {
+		Movable[] rArray = new Movable[2];
+		
+		rArray[0] = new Rectangle();
+		rArray[1] = new Triangle();
+		
+		System.out.println(rArray[0] instanceof Rectangle); //true
+		//rArray[0]은 Rectangle 타입이므로 true
+		System.out.println(rArray[0] instanceof Triangle); //false
+		//rArray[0]은 Triangle 타입이 아니므로 false
+		System.out.println(rArray[0] instanceof Movable); //true
+		//rArray[0]은 Movable을 구현한 Rectangle 타입이므로 true
+		System.out.println(rArray[0] instanceof Drawable); //true
+		//rArray[0]은 Drawable을 구현한 Rectangle 타입이므로 true
+		
+		System.out.println(rArray[1] instanceof Rectangle); //false
+		//rArray[1]은 Rectangle 타입이 아니므로 false
+		System.out.println(rArray[1] instanceof Triangle); //true
+		//rArray[1]은 Triangle 타입이므로 true
+		System.out.println(rArray[1] instanceof Movable); //true
+		//rArray[1]은 Movable을 구현한 Triangle 타입이므로 true
+		System.out.println(rArray[1] instanceof Drawable); //true
+		//rArray[1]은 Drawable을 구현한 Triangle 타입이므로 true
+	}
+}
+
+#Practice53
+import java.util.Scanner;
+public class Practice53 {
+	public static void main(String[] args) {
+		int x, y;
+		double length, width, base, height;
+		Shape[] sArray = new Shape[3];
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("도형의 X좌표를 입력하세요: ");
+		x = sc.nextInt();
+		System.out.print("도형의 Y좌표를 입력하세요: ");
+		y = sc.nextInt();
+		sArray[0] = new Shape(x,y);
+		
+		System.out.print("\n사각형의 X좌표를 입력하세요: ");
+		x = sc.nextInt();
+		System.out.print("사각형의 Y좌표를 입력하세요: ");
+		y = sc.nextInt();
+		System.out.print("사각형의 가로를 입력하세요: ");
+		length = sc.nextInt();
+		System.out.print("사각형의 세로를 입력하세요: ");
+		width = sc.nextInt();
+		sArray[1] = new Rectangle(x,y,length,width);
+		
+		System.out.print("\n삼각형의 X좌표를 입력하세요: ");
+		x = sc.nextInt();
+		System.out.print("삼각형의 Y좌표를 입력하세요: ");
+		y = sc.nextInt();
+		System.out.print("삼각형의 밑변를 입력하세요: ");
+		base = sc.nextInt();
+		System.out.print("삼각형의 높이를 입력하세요: ");
+		height = sc.nextInt();
+		sArray[2] = new Triangle(x,y,base,height);
+		
+		boolean moved = false;
+		System.out.println("\n입력된 정보입니다.\n");
+		do{
+			for(int i=0;i<3;i++) {
+				System.out.println((i+1)+":"+sArray[i].toString());
+			}
+			if(moved == true)
+				break;
+			System.out.println("\n--도형들을 이동합니다--\n");
+			for(int i=0;i<3;i++) {
+				sArray[i].move();
+			}
+			moved = true;
+		}while(true);
+	}
+}
