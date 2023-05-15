@@ -40,3 +40,154 @@ public class Practice48 {
 	}
 }
 
+#Movable
+public interface Movable {
+	void move();
+}
+
+#Shape
+public class Shape implements Movable{
+	private int x;
+	private int y;
+	public Shape(){
+	}
+	public Shape(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+	public double calcArea() {
+		return -1;
+	}
+	public String toString() {
+		return "중심좌표:("+this.x+","+this.y+")";
+	}
+	public void move() {
+		this.x = (int)(Math.random()*100);
+		this.y = (int)(Math.random()*100);
+	}
+	
+}
+
+#Rectangle
+public class Rectangle extends Shape{
+	private double length;
+	private double width;
+	public Rectangle() {
+		super();
+	}
+	public Rectangle(double l, double w) {
+		this.length = l;
+		this.width = w;
+	}
+	public Rectangle(int x, int y, double l, double w) {
+		super(x, y);
+		this.length = l;
+		this.width = w;
+	}
+	public double getLength() {
+		return length;
+	}
+	public double getWidth() {
+		return width;
+	}
+	public double calcArea() {
+		double area = length*width;
+		return area;
+	}
+	public String toString() {
+		return "중심좌표:("+super.getX()+","+super.getY()+"),가로: "+this.length+
+				",세로:"+this.width+",면적:"+this.calcArea();
+	}
+}
+
+#Triangle
+
+public class Triangle extends Shape{
+	private double base;
+	private double height;
+	public Triangle() {
+		super();
+	}
+	public Triangle(double b, double h) {
+		this.base = b;
+		this.height = h;
+	}
+	public Triangle(int x, int y, double b, double h) {
+		super(x, y);
+		this.base = b;
+		this.height = h;
+	}
+	public double getBase() {
+		return base;
+	}
+	public double getHeight() {
+		return height;
+	}
+	public double calcArea() {
+		double area = base*height/2;
+		return area;
+	}
+	public String toString() {
+		return "중심좌표:("+super.getX()+","+super.getY()+"),가로:"+this.base+
+				",세로:"+this.height+",면적:"+this.calcArea();
+	}
+}
+
+#Practice49
+import java.util.Scanner;
+public class Practice49 {
+	public static void main(String[] args) {
+		int x, y;
+		double length, width, base, height;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("도형의 X좌표를 입력하세요: ");
+		x = sc.nextInt();
+		System.out.print("도형의 Y좌표를 입력하세요: ");
+		y = sc.nextInt();
+		Shape shape = new Shape(x,y);
+		
+		System.out.print("\n사각형의 X좌표를 입력하세요: ");
+		x = sc.nextInt();
+		System.out.print("사각형의 Y좌표를 입력하세요: ");
+		y = sc.nextInt();
+		System.out.print("사각형의 가로를 입력하세요: ");
+		length = sc.nextInt();
+		System.out.print("사각형의 세로를 입력하세요: ");
+		width = sc.nextInt();
+		Shape rec = new Rectangle(x,y,length,width);
+		
+		System.out.print("\n삼각형의 X좌표를 입력하세요: ");
+		x = sc.nextInt();
+		System.out.print("삼각형의 Y좌표를 입력하세요: ");
+		y = sc.nextInt();
+		System.out.print("삼각형의 밑변를 입력하세요: ");
+		base = sc.nextInt();
+		System.out.print("삼각형의 높이를 입력하세요: ");
+		height = sc.nextInt();
+		Shape tri = new Triangle(x,y,base,height);
+		
+		System.out.println("\n입력된 도형의 정보입니다");
+		System.out.println(shape.toString());
+		shape.move();
+		System.out.println("--이동 후--");
+		System.out.println(shape.toString());
+		
+		System.out.println("\n입력된 사각형의 정보입니다");
+		System.out.println(rec.toString());
+		rec.move();
+		System.out.println("--이동 후--");
+		System.out.println(rec.toString());
+		
+		System.out.println("\n입력된 삼각형의 정보입니다");
+		System.out.println(tri.toString());
+		tri.move();
+		System.out.println("--이동 후--");
+		System.out.println(tri.toString());
+	}
+}
