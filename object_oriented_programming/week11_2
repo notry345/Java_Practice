@@ -1,1 +1,103 @@
+#9-1
+import javax.swing.*;
+public class MyFrame extends JFrame{
+	public MyFrame() {
+		setTitle("300x300 스윙 프레임 만들기");
+		setSize(300,300);
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		MyFrame frame = new MyFrame();
+	}
 
+#9-2
+import javax.swing.*;
+import java.awt.*;
+public class ContentPaneEx extends JFrame{
+	public ContentPaneEx() {
+		setTitle("ContentPane과 JFrame");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container contentPane = getContentPane();
+		contentPane.setBackground(Color.RED);
+		contentPane.setLayout(new FlowLayout());
+		contentPane.add(new JButton("OK"));
+		contentPane.add(new JButton("Cancel"));
+		contentPane.add(new JButton("Ignore"));
+		setSize(300,150);
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		new ContentPaneEx();
+	}
+}
+
+#9-3
+import javax.swing.*;
+import java.awt.*;
+public class FlowLayoutEx extends JFrame{
+	public FlowLayoutEx() {
+		setTitle("FlowLayout Sample");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 40));
+		c.add(new JButton("add"));
+		c.add(new JButton("sub"));
+		c.add(new JButton("mul"));
+		c.add(new JButton("div"));
+		c.add(new JButton("Calculate"));
+		setSize(300, 200);
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		new FlowLayoutEx();
+	}
+}
+
+#9-4
+import javax.swing.*;
+import java.awt.*;
+public class BorderLayoutEx extends JFrame{
+	public BorderLayoutEx() {
+		setTitle("BoderLayout Sample");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new BorderLayout(30, 20));
+		c.add(new JButton("Calculate"), BorderLayout.CENTER);
+		c.add(new JButton("add"), BorderLayout.NORTH);
+		c.add(new JButton("sub"), BorderLayout.SOUTH);
+		c.add(new JButton("mul"), BorderLayout.EAST);
+		c.add(new JButton("div"), BorderLayout.WEST);
+		setSize(300, 200);
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		new BorderLayoutEx();
+	}
+}
+
+#9-5
+import javax.swing.*;
+import java.awt.*;
+public class GridLayoutEx extends JFrame{
+	public GridLayoutEx() {
+		setTitle("GridLayout Sample");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		GridLayout grid = new GridLayout(4, 2);
+		grid.setVgap(5);
+		Container c = getContentPane();
+		c.setLayout(grid);
+		c.add(new JLabel(" 이름"));
+		c.add(new JTextField(""));
+		c.add(new JLabel(" 학번"));
+		c.add(new JTextField(""));
+		c.add(new JLabel(" 학과"));
+		c.add(new JTextField(""));
+		c.add(new JLabel(" 과목"));
+		c.add(new JTextField(""));
+		setSize(300, 200);
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		new GridLayoutEx();
+	}
+}
