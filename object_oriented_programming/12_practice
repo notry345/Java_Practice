@@ -1,0 +1,26 @@
+import javax.swing.*;
+import java.awt.*;
+public class Practice01 extends JFrame{
+	Practice01(){
+		setTitle("4x4 Color Frame");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		GridLayout grid = new GridLayout(4,4);
+		Container c = getContentPane();
+		c.setLayout(grid);
+		JLabel[] label = new JLabel[16];
+		
+		(int)(Math.random()*255);
+		for(int i=0; i<16; i++) {
+			label[i] = new JLabel();
+			label[i].setText(String.valueOf(i));
+			label[i].setOpaque(true);
+			c.add(label[i]);
+		}
+		setSize(500,200);
+		setVisible(true);
+		
+	}
+	public static void main(String[] args) {
+		Practice01 p = new Practice01();
+	}
+}
