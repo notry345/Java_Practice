@@ -27,3 +27,37 @@ public class Practice01 extends JFrame {
 		new Practice01();
 	}
 }
+
+#Practice02
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+public class Practice02 extends JFrame{
+	JLabel label = new JLabel("Love Java");
+	Container c = getContentPane();
+	int size = label.getFont().getSize();
+	public Practice02() {
+		setTitle("+,-키로 폰트 크기 변경");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		c.setLayout(new FlowLayout());
+		c.addKeyListener(new MyKeyListener());
+		c.add(label);
+		setSize(300,200);
+		setVisible(true);
+		c.setFocusable(true);
+		c.requestFocus();
+	}
+	class MyKeyListener extends KeyAdapter{
+		public void keyPressed(KeyEvent e) {
+			if(e.getKeyCode() == KeyEvent.VK_EQUALS)
+				size += 5;
+			else if (e.getKeyCode() == KeyEvent.VK_MINUS&&size>=5) {
+			    size -= 5;
+			}
+			label.setFont(new Font("Dialog",Font.PLAIN,size));
+		}
+	}
+	public static void main(String[] args) {
+		new Practice02();
+	}
+}
