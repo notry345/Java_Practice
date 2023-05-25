@@ -1,0 +1,29 @@
+#Practice01
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+public class Practice01 extends JFrame {
+	Container c = getContentPane();
+	public Practice01() {
+		setTitle("드레깅동안 YELLOW로 변경");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		c.setBackground(Color.GREEN);
+		c.addMouseListener(new MyMouseListener());
+		setSize(300,200);
+		setVisible(true);
+	}
+	class MyMouseListener extends MouseAdapter{
+		public void mousePressed(MouseEvent e) {
+			c.setBackground(Color.YELLOW);
+		}
+		public void mouseDragged(MouseEvent e) {
+			c.setBackground(Color.YELLOW);
+		}
+		public void mouseReleased(MouseEvent e) {
+			c.setBackground(Color.GREEN);
+		}
+	}
+	public static void main(String[] args) {
+		new Practice01();
+	}
+}
