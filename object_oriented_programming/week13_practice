@@ -61,3 +61,31 @@ public class Practice02 extends JFrame{
 		new Practice02();
 	}
 }
+
+#Practice03
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+public class Practice03 extends JFrame{
+	public Practice03() {
+		setTitle("클릭 연습용 스윙 프로그램");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+		JLabel la = new JLabel("C");
+		c.add(la);
+		la.setLocation(50,50);
+		la.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				int x = (int)(Math.random()*(c.getWidth()-la.getWidth()));
+				int y = (int)(Math.random()*(c.getHeight()-la.getHeight()));
+				la.setLocation(x,y);
+			}
+		});
+		setSize(300,200);
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		new Practice03();
+	}
+}
