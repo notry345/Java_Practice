@@ -1,0 +1,119 @@
+##week13 PPT
+
+public class PrintException1 {
+	public static void main(String[] args) {
+		try {
+			int a = 100/0;
+		}
+		catch(ArithmeticException ex) {
+			System.out.println(ex);
+		}
+		finally {
+			System.out.println("finally block");
+		}
+		System.out.println("End of main");
+	}
+}
+
+public class PrintException2 {
+	public static void main(String[] args) {
+		try {
+			int a = 100/0;
+		}
+		catch(ArithmeticException ex) {
+			System.out.println(ex.getMessage());
+		}
+		finally {
+			System.out.println("finally block");
+		}
+		System.out.println("End of main");
+	}
+}
+
+public class PrintException3 {
+	public static void main(String[] args) {
+		f();
+	}
+	static void f() {
+		g();
+	}
+	static void g() {
+		h();
+	}
+	static void h() {
+		try {
+			int a = 100/0;
+		}
+		catch(ArithmeticException ex) {
+			ex.printStackTrace();
+		}
+	}
+}
+
+public class PrintException4 {
+	public static void main(String[] args) {
+		f();
+	}
+	static void f() {
+		g();
+	}
+	static void g() {
+		h();
+	}
+	static void h() {
+		try {
+			int a = 100/0;
+		}
+		catch(ArithmeticException ex) {
+			StackTraceElement[] arr;
+			arr = ex.getStackTrace();
+			for(StackTraceElement ele : arr) {
+				System.out.printf("%s\t%s\t%s\t%d\n",
+						ele.getClassName(),
+						ele.getMethodName(),
+						ele.getFileName(),
+						ele.getLineNumber());
+			}
+		}
+	}
+}
+
+public class Rethrow {
+	public static void main(String[] args) {
+		try {
+			f();
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		System.out.println("This is main().");
+	}
+	static void f() throws Exception{
+		try {
+			g();
+		}
+		catch(Exception ex) {
+			System.out.println("Exception is caught in f().");
+			throw ex;
+		}
+	}
+	static void g() throws Exception{
+		throw new Exception("Exception generated in g().");
+	}
+}
+
+public class ThrowException4 {
+	public static void main(String[] args) {
+		try {
+			f();
+		}
+		catch(Exception e) {
+			System.out.println("Exception is caught.");
+		}
+		System.out.println("This is main().");
+	}
+	static void f() throws Exception{
+		Exception ex = new Exception();
+		throw ex;
+	}
+}
