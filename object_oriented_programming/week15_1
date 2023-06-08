@@ -1,0 +1,123 @@
+#Formatter
+import java.util.Formatter;
+import java.io.FileNotFoundException;
+public class FormatterTest {
+	public static void main(String[] args) {
+		try {
+			Formatter output = new Formatter("numbers.txt");
+			for(int i=0; i<10; i++)
+				output.format("%d\r\n",i);
+			output.close();
+		}
+		catch(FileNotFoundException e) {
+			System.out.println("cannot open");
+			System.exit(1);
+		}
+	}
+}
+
+#Scanner
+import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.io.File;
+public class ScannerTest {
+	public static void main(String[] args) {
+		int n;
+		try {
+			Scanner input = new Scanner(new File("numbers.txt"));
+			while(input.hasNext()) {
+				n = input.nextInt();
+				System.out.println(n);
+			}
+			input.close();
+		}
+		catch(FileNotFoundException e) {
+			System.err.println("cannot open");
+			System.exit(1);
+		}
+	}
+}
+
+#8-1
+import java.io.*;
+public class FileReaderEx {
+	public static void main(String[] args) {
+		FileReader fin = null;
+		try {
+			fin = new FileReader("c:\\windows\\system.ini");
+			int c;
+			while((c = fin.read()) != -1) {
+				System.out.print((char)c);
+			}
+			fin.close();
+		}
+		catch(IOException e) {
+			System.out.println("입출력 오류");
+		}
+	}
+}
+
+#8-1a
+import java.io.*;
+public class FileReaderEx2 {
+	public static void main(String[] args) {
+		FileReader fin = null;
+		try {
+			fin = new FileReader("");
+			int c;
+			while((c = fin.read()) != -1) {
+				System.out.print((char)c);
+			}
+			fin.close();
+		}
+		catch(FileNotFoundException e) {
+			System.out.println("파일오픈 오류");
+		}
+		catch(IOException e) {
+			System.out.println("입출력 오류");
+		}
+	}
+}
+
+#8-4
+import java.io.*;
+import java.util.*;
+public class FileWriterEx {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		FileWriter fout = null;
+		int c;
+		try {
+			fout = new FileWriter("c:\\Temp\\test.txt");
+			while(true) {
+				String line = scanner.nextLine();
+				if(line.length() == 0)
+					break;
+				fout.write(line, 0,line.length());
+				fout.write("\r\n",0,2);
+			}
+			fout.close();
+		}
+		catch(IOException e) {
+			System.out.println("입출력 오류");
+		}
+		scanner.close();
+	}
+
+}
+
+#8-6
+import java.io.*;
+public class FileWriterTest {
+	public static void main(String[] args) {
+		try {
+			FileWriter fout = new FileWriter("test.txt");
+			for(int i=0; i<10; i++)
+				fout.write('0'+i);
+			fout.close();
+		}
+		catch(IOException e) {
+			System.err.println("IO error");
+		}
+	}
+}
